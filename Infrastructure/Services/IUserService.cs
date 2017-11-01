@@ -6,9 +6,9 @@ namespace Infrastructure.Services
 {
     public interface IUserService
     {
-         Task<IEnumerable<UserDto>> GetAllUsers();
-         Task<UserDto> GetUserAsync(string username);
-         Task RegisterUserAsync(string username, string password);
-         Task DeleteUserAsync(string username);
+         IEnumerable<UserDto> GetAllUsers();
+         UserDto GetUser(string username);
+         void RegisterUser(string username, string password);
+         void DeleteUser(string username);
     }
 }

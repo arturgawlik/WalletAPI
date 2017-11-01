@@ -17,40 +17,40 @@ namespace Infrastructure.Repository
             _dbContext = dbContext;
         }
         
-        public async Task<IEnumerable<User>> GetAllAsync()
+        public IEnumerable<User> GetAll()
         {
-            return await _dbContext.Users.ToListAsync();
+            return _dbContext.Users.ToList();
         }
 
-        public async Task<User> GetAsync(Guid id)
+        public User Get(Guid id)
         {
-            return await _dbContext.Users.FirstAsync(x => x.Id == id);
+            return _dbContext.Users.First(x => x.Id == id);
         }
 
-        public async Task<User> GetAsync(string userName)
+        public User Get(string userName)
         {
-            return await _dbContext.Users.FirstAsync(x => x.Username == userName);
+             return _dbContext.Users.FirstOrDefault(x => x.Username == userName);
         }
 
-        public async Task AddAsync(User user)
+        public void Add(User user)
         {
-            await _dbContext.Users.AddAsync(user);
-            await _dbContext.SaveChangesAsync();
+            _dbContext.Users.Add(user);
+            _dbContext.SaveChanges();
         }
 
-        public async Task UpdateAsync(User user)
+        public void Update(User user)
         {
             _dbContext.Users.Update(user);
-            await _dbContext.SaveChangesAsync();
+            _dbContext.SaveChanges();
         }
         
-        public async Task RemoveAsync(User user)
+        public void Remove(User user)
         {
             _dbContext.Users.Remove(user);
-            await _dbContext.SaveChangesAsync();
+            _dbContext.SaveChanges();
         }
 
-        public Task AddWalletAsync(Wallet wallet)
+        public void AddWallet(Wallet wallet)
         {
             throw new NotImplementedException();
         }

@@ -7,12 +7,12 @@ namespace Core.Repository
 {
     public interface IUserRepository
     {
-        Task<User> GetAsync(Guid id);
-        Task<User> GetAsync(String userName);
-        Task<IEnumerable<User>> GetAllAsync();
-        Task AddAsync(User user);
-        Task UpdateAsync(User user);
-        Task RemoveAsync(User user);
-        Task AddWalletAsync(Wallet wallet);
+        User Get(Guid id);
+        User Get(String userName);
+        IEnumerable<User> GetAll();
+        void Add(User user);
+        void Update(User user);
+        void Remove(User user);
+        void AddWallet(Wallet wallet);
     }
 }

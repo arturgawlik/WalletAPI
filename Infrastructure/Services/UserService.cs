@@ -17,44 +17,44 @@ namespace Infrastructure.Services
             this.mapper = mapper;
             this.userRepository = userRepository;
         }
-        public async Task<IEnumerable<UserDto>> GetAllUsers()
+        public IEnumerable<UserDto> GetAllUsers()
         {
-            var users = await userRepository.GetAllAsync();
+            var users = userRepository.GetAll();
 
             return mapper.Map<IEnumerable<UserDto>>(users);
         }
 
-        public async Task<UserDto> GetUserAsync(string username)
+        public UserDto GetUser(string username)
         {
-            var user = await userRepository.GetAsync(username);
+            var user = userRepository.Get(username);
 
             return mapper.Map<UserDto>(user);
         }
 
-        public async Task RegisterUserAsync(string username, string password)
+        public void RegisterUser(string username, string password)
         {
-            var user = await userRepository.GetAsync(username);
+             var user = userRepository.Get(username);
             
-            if(user != null)
-                throw new Exception($"User with username '{username}' already exist.");
-            if(string.IsNullOrWhiteSpace(username))
-                throw new Exception("Username can not be empty");
-            if(string.IsNullOrWhiteSpace(password))
-                throw new Exception("Password can not be null.");
+             if(user != null)
+                 throw new Exception($"User with username '{username}' already exist.");
+             if(string.IsNullOrWhiteSpace(username))
+                 throw new Exception("Username can not be empty");
+             if(string.IsNullOrWhiteSpace(password))
+                 throw new Exception("Password can not be null.");
 
             user = new User(username, password);
 
-            await userRepository.AddAsync(user);
+            userRepository.Add(user);
         }
 
-        public async Task DeleteUserAsync(string username)
+        public void DeleteUser(string username)
         {
-            var user = await userRepository.GetAsync(username);
+            var user = userRepository.Get(username);
 
             if(user == null)
                 throw new Exception($"User with username '{username}' do not exsist.");
 
-            await userRepository.RemoveAsync(user);
+            userRepository.Remove(user);
         }
     }
 }
