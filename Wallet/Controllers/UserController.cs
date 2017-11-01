@@ -19,7 +19,7 @@ namespace Wallet.Controllers
 
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetAllUsers()
         {
             var users = userService.GetAllUsers();
 
@@ -28,7 +28,7 @@ namespace Wallet.Controllers
 
 
         [HttpGet("{username}")]
-        public IActionResult Get(string username)
+        public IActionResult GetUser(string username)
         {
             var users = userService.GetUser(username);
 
@@ -37,7 +37,7 @@ namespace Wallet.Controllers
 
 
         [HttpPost]
-        public IActionResult Post([FromBody]CreateUser command)
+        public IActionResult RegisterUser([FromBody]CreateUser command)
         {
             userService.RegisterUser(command.Username, command.Password);
 
@@ -46,16 +46,24 @@ namespace Wallet.Controllers
 
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody]CreateUser command)
+        public IActionResult UpdateUser(int id, [FromBody]CreateUser command)
         {
             throw new NotImplementedException();
         }
 
 
         [HttpDelete("{username}")]
-        public void Delete(string username)
+        public void DeleteUser(string username)
         {
             userService.DeleteUser(username);
         }
+
+        // [HttpPost("AddWallet")]
+        // public IActionResult AddWalletToUser([FromBody]AddWallet command)
+        // {
+        //     userService.AddWallet(command.UserId, command.WalletName, command.WalletDescription);
+
+        //     return Created("", null);
+        // }
     }
 }

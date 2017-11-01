@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core.Models;
 using Core.Repository;
+using Infrastructure.EF;
 
 namespace Infrastructure.Repository
 {
     public class WalletRepository : IWalletRepository
     {
+        private readonly WalletContext _dbContext;
+        public WalletRepository(WalletContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public Task<IEnumerable<Wallet>> GetAllAsync(User user)
         {
             throw new NotImplementedException();
@@ -18,9 +24,10 @@ namespace Infrastructure.Repository
             throw new NotImplementedException();
         }
 
-        public Task AddAsync(Wallet wallet)
+        public void Add(Wallet wallet)
         {
-            throw new NotImplementedException();
+            _dbContext.Wallets.Add(wallet);
+            _dbContext.SaveChanges();
         }
 
         public Task UpdateAsync(Wallet wallet)

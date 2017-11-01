@@ -10,6 +10,7 @@ namespace Core.Models
         public decimal Content { get; protected set; }
         public DateTime CreatedTime { get; }
         public DateTime UpdateTime { get; protected set; }
+        public Guid UserId { get; protected set; }
         public List<Event> Events { get; protected set; }
 
 
@@ -17,9 +18,10 @@ namespace Core.Models
         {
         }
 
-        public Wallet(string name, string description)
+        public Wallet(string name, string description, Guid userId)
         {
             Id = Guid.NewGuid();
+            UserId = userId;
             CreatedTime = DateTime.UtcNow;
             SetName(name);
             SetDescription(description);

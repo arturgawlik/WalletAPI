@@ -35,6 +35,8 @@ namespace Wallet
             services.AddSingleton(AutoMapperConfig.Initialize());
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IWalletRepository, WalletRepository>();
+            services.AddScoped<IWalletService, WalletService>();
             
         }
  

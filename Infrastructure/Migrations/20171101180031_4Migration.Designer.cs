@@ -12,9 +12,10 @@ using System;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(WalletContext))]
-    partial class WalletContextModelSnapshot : ModelSnapshot
+    [Migration("20171101180031_4Migration")]
+    partial class _4Migration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,8 +78,6 @@ namespace Infrastructure.Migrations
                     b.Property<string>("Name");
 
                     b.Property<DateTime>("UpdateTime");
-
-                    b.Property<Guid>("UserId");
 
                     b.HasKey("Id");
 

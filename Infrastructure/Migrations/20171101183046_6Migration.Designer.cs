@@ -12,9 +12,10 @@ using System;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(WalletContext))]
-    partial class WalletContextModelSnapshot : ModelSnapshot
+    [Migration("20171101183046_6Migration")]
+    partial class _6Migration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,9 +79,11 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("UpdateTime");
 
-                    b.Property<Guid>("UserId");
+                    b.Property<Guid?>("UserId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Wallets");
                 });
@@ -90,6 +93,13 @@ namespace Infrastructure.Migrations
                     b.HasOne("Core.Models.Wallet")
                         .WithMany("Events")
                         .HasForeignKey("WalletId");
+                });
+
+            modelBuilder.Entity("Core.Models.Wallet", b =>
+                {
+                    b.HasOne("Core.Models.User")
+                        .WithMany("Wallets")
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

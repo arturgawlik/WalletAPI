@@ -9,7 +9,7 @@ namespace Core.Repository
     {
          Task<Wallet> GetAsync(Guid id);
          Task<IEnumerable<Wallet>> GetAllAsync(User user);
-         Task AddAsync(Wallet wallet);
+         void Add(Wallet wallet);
          Task UpdateAsync(Wallet wallet);
          Task RemoveAsync(Guid id);
     }
