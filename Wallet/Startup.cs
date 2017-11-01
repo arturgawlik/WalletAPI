@@ -33,8 +33,8 @@ namespace Wallet
             services.AddEntityFrameworkSqlServer()
                     .AddDbContext<WalletContext>();
             services.AddSingleton(AutoMapperConfig.Initialize());
-            services.AddSingleton<IUserRepository, UserRepository>();
-            services.AddSingleton<IUserService, UserService>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
             
         }
  

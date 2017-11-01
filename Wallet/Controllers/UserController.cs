@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Infrastructure.Commands.Users;
+using Infrastructure.Dto;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,43 +17,45 @@ namespace Wallet.Controllers
             this.userService = userService;
         }
 
-        
-        // GET api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        [HttpGet]
+        public IActionResult Get()
         {
-            var users = await userService.GetAllUsers();
+            var users = userService.GetAllUsers();
 
             return Json(users);
         }
 
-        // POST api/values
+
+        [HttpGet("{username}")]
+        public IActionResult Get(string username)
+        {
+            var users = userService.GetUser(username);
+
+            return Json(users);
+        }
+
+
         [HttpPost]
-        public void Post([FromBody]CreateUser user)
+        public IActionResult Post([FromBody]CreateUser command)
         {
+            userService.RegisterUser(command.Username, command.Password);
 
+            return Created("", null);
         }
 
-        // PUT api/values/5
+
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAsync(int id, [FromBody]CreateUser command)
+        public IActionResult Put(int id, [FromBody]CreateUser command)
         {
-            await userService.RegisterUserAsync(command.Username, command.Password);
-
-            return Ok();
+            throw new NotImplementedException();
         }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+
+        [HttpDelete("{username}")]
+        public void Delete(string username)
         {
+            userService.DeleteUser(username);
         }
     }
 }
