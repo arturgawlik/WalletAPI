@@ -19,26 +19,26 @@ namespace Wallet.Controllers
         }
 
 
-        // [HttpGet]
-        // public IActionResult GetAllUsers()
-        // {
-        //     var users = _walletService.GetAllUsers();
+        [HttpGet]
+        public IActionResult GetAllWallets()
+        {
+            var users = _walletService.GetAllWallets();
 
-        //     return Json(users);
-        // }
+            return Json(users);
+        }
 
 
-        // [HttpGet("{username}")]
-        // public IActionResult GetUser(string username)
-        // {
-        //     var users = _walletService.GetUser(username);
+        [HttpGet("{name}")]
+        public IActionResult GetUser(string name)
+        {
+            var users = _walletService.GetWallet(name);
 
-        //     return Json(users);
-        // }
+            return Json(users);
+        }
 
 
         [HttpPost]
-        public IActionResult RegisterUser([FromBody]CreateWallet command)
+        public IActionResult AddWallet([FromBody]CreateWallet command)
         {
             _walletService.AddWallet(command.Name, command.Description, command.UserId);
 
@@ -53,11 +53,11 @@ namespace Wallet.Controllers
         // }
 
 
-        // [HttpDelete("{username}")]
-        // public void DeleteUser(string username)
-        // {
-        //     _walletService.DeleteUser(username);
-        // }
+        [HttpDelete("{name}")]
+        public void DeleteUser(string name)
+        {
+            _walletService.DeleteWallet(name);
+        }
 
         // [HttpPost("AddWallet")]
         // public IActionResult AddWalletToUser([FromBody]AddWallet command)
