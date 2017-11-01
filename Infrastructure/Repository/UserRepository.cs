@@ -24,7 +24,7 @@ namespace Infrastructure.Repository
 
         public User Get(Guid id)
         {
-            return _dbContext.Users.First(x => x.Id == id);
+            return _dbContext.Users.FirstOrDefault(x => x.Id == id);
         }
 
         public User Get(string userName)
