@@ -49,19 +49,5 @@ namespace Infrastructure.Repository
             _dbContext.Users.Remove(user);
             _dbContext.SaveChanges();
         }
-
-        // public void AddWallet(Guid userId, Wallet wallet)
-        // {
-        //     var user = _dbContext.Users.FirstOrDefault(x => x.Id == userId);
-        //     var walletCheck = user.Wallets.FirstOrDefault(x => x.Name == wallet.Name);
-
-        //     if(walletCheck != null)
-        //         throw new Exception($"There is already wallet with name: '{wallet.Name}'");
-
-        //     user.AddWallet(wallet);
-
-        //     _dbContext.Wallets.Add(wallet);
-        //     _dbContext.SaveChanges();
-        // }
     }
 }

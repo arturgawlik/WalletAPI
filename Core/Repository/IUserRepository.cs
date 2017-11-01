@@ -13,6 +13,5 @@ namespace Core.Repository
         void Add(User user);
         void Update(User user);
         void Remove(User user);
-        //void AddWallet(Guid userId, Wallet wallet);
     }
 }

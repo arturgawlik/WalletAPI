@@ -14,12 +14,12 @@ namespace Infrastructure.Repository
         {
             _dbContext = dbContext;
         }
-        public Task<IEnumerable<Wallet>> GetAllAsync(User user)
+        public IEnumerable<Wallet> GetAll(User user)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Wallet> GetAsync(Guid id)
+        public Wallet Get(Guid id)
         {
             throw new NotImplementedException();
         }
@@ -30,12 +30,12 @@ namespace Infrastructure.Repository
             _dbContext.SaveChanges();
         }
 
-        public Task UpdateAsync(Wallet wallet)
+        public void Update(Wallet wallet)
         {
             throw new NotImplementedException();
         }
 
-        public Task RemoveAsync(Guid id)
+        public void Remove(Guid id)
         {
             throw new NotImplementedException();
         }

@@ -56,11 +56,5 @@ namespace Infrastructure.Services
 
             userRepository.Remove(user);
         }
-
-        // public void AddWallet(Guid userId, string walletName, string walletDescription)
-        // {
-        //     var wallet = new Wallet(walletName, walletDescription);
-        //     userRepository.AddWallet(userId, wallet);
-        // }
     }
 }

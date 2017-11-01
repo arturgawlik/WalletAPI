@@ -11,6 +11,5 @@ namespace Infrastructure.Services
          UserDto GetUser(string username);
          void RegisterUser(string username, string password);
          void DeleteUser(string username);
-         //void AddWallet(Guid userId, string walletName, string walletDescription);
     }
 }

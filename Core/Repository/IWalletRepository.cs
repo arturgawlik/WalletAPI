@@ -7,10 +7,10 @@ namespace Core.Repository
 {
     public interface IWalletRepository
     {
-         Task<Wallet> GetAsync(Guid id);
-         Task<IEnumerable<Wallet>> GetAllAsync(User user);
+         Wallet Get(Guid id);
+         IEnumerable<Wallet> GetAll(User user);
          void Add(Wallet wallet);
-         Task UpdateAsync(Wallet wallet);
-         Task RemoveAsync(Guid id);
+         void Update(Wallet wallet);
+         void Remove(Guid id);
     }
 }

@@ -57,13 +57,5 @@ namespace Wallet.Controllers
         {
             userService.DeleteUser(username);
         }
-
-        // [HttpPost("AddWallet")]
-        // public IActionResult AddWalletToUser([FromBody]AddWallet command)
-        // {
-        //     userService.AddWallet(command.UserId, command.WalletName, command.WalletDescription);
-
-        //     return Created("", null);
-        // }
     }
 }

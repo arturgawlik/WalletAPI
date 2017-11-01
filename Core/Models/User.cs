@@ -9,18 +9,6 @@ namespace Core.Models
         public string Password { get; protected set; }
         public DateTime CreatedTime { get; set; }
         public DateTime UpdateTime { get; set; }
-        // private List<Wallet> _wallets = new List<Wallet>();
-        // public List<Wallet> Wallets 
-        // { 
-        //     get
-        //     {
-        //         return _wallets;
-        //     }
-        //     set
-        //     {
-        //         _wallets = value;
-        //     }
-        // }
         
 
         public User()
@@ -54,12 +42,6 @@ namespace Core.Models
             Password = password;
             Update();
         }
-
-        // public void AddWallet(Wallet wallet)
-        // {
-        //     Wallets.Add(wallet);
-        //     Update();
-        // }
 
         public void Update()
         {
