@@ -32,11 +32,16 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Commands" t="Include">
           <e p="Users" t="Include">
+            <e p="AddWallet.cs" t="Include" />
             <e p="CreateUser.cs" t="Include" />
+          </e>
+          <e p="Wallets" t="Include">
+            <e p="CreateWallet.cs" t="Include" />
           </e>
         </e>
         <e p="Dto" t="Include">
           <e p="UserDto.cs" t="Include" />
+          <e p="WalletDto.cs" t="Include" />
         </e>
         <e p="EF" t="Include">
           <e p="WalletContext.cs" t="Include" />
@@ -45,6 +50,18 @@
         <e p="Migrations" t="Include">
           <e p="20171022183254_FirstMigration.cs" t="Include" />
           <e p="20171022183254_FirstMigration.Designer.cs" t="Include" />
+          <e p="20171101153453_SecondMigration.cs" t="Include" />
+          <e p="20171101153453_SecondMigration.Designer.cs" t="Include" />
+          <e p="20171101153828_ThirdMigration.cs" t="Include" />
+          <e p="20171101153828_ThirdMigration.Designer.cs" t="Include" />
+          <e p="20171101180031_4Migration.cs" t="Include" />
+          <e p="20171101180031_4Migration.Designer.cs" t="Include" />
+          <e p="20171101182356_5Migration.cs" t="Include" />
+          <e p="20171101182356_5Migration.Designer.cs" t="Include" />
+          <e p="20171101183046_6Migration.cs" t="Include" />
+          <e p="20171101183046_6Migration.Designer.cs" t="Include" />
+          <e p="20171101202344_7Migration.cs" t="Include" />
+          <e p="20171101202344_7Migration.Designer.cs" t="Include" />
           <e p="WalletContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -61,7 +78,9 @@
         </e>
         <e p="Services" t="Include">
           <e p="IUserService.cs" t="Include" />
+          <e p="IWalletService.cs" t="Include" />
           <e p="UserService.cs" t="Include" />
+          <e p="WalletService.cs" t="Include" />
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
@@ -72,7 +91,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
           <e p="UserController.cs" t="Include" />
-          <e p="ValuesController.cs" t="Include" />
+          <e p="WalletController.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Core.Models;
 using Core.Repository;
@@ -14,14 +15,18 @@ namespace Infrastructure.Repository
         {
             _dbContext = dbContext;
         }
-        public IEnumerable<Wallet> GetAll(User user)
+        public IEnumerable<Wallet> GetAll()
         {
-            throw new NotImplementedException();
+            var wallets = _dbContext.Wallets.ToList();
+
+            return wallets;
         }
 
         public Wallet Get(Guid id)
         {
-            throw new NotImplementedException();
+            var wallet = _dbContext.Wallets.FirstOrDefault(x => x.Id == id);
+
+            return wallet;
         }
 
         public void Add(Wallet wallet)
@@ -32,12 +37,15 @@ namespace Infrastructure.Repository
 
         public void Update(Wallet wallet)
         {
-            throw new NotImplementedException();
+            _dbContext.Wallets.Update(wallet);
+            _dbContext.SaveChanges();
         }
 
         public void Remove(Guid id)
         {
-            throw new NotImplementedException();
+            var wallet = Get(id);
+            _dbContext.Wallets.Remove(wallet);
+            _dbContext.SaveChanges();
         }
     }
 }

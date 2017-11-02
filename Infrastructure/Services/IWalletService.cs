@@ -7,8 +7,8 @@ namespace Infrastructure.Services
     public interface IWalletService
     {
         IEnumerable<WalletDto> GetAllWallets();
-        WalletDto GetWallet(string name);
+        WalletDto GetWallet(Guid id);
         void AddWallet(string name, string description, Guid userId);
-        void DeleteWallet(string name);
+        void DeleteWallet(Guid id);
     }
 }

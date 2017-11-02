@@ -28,10 +28,10 @@ namespace Wallet.Controllers
         }
 
 
-        [HttpGet("{name}")]
-        public IActionResult GetUser(string name)
+        [HttpGet("{id}")]
+        public IActionResult GetWallet(Guid id)
         {
-            var users = _walletService.GetWallet(name);
+            var users = _walletService.GetWallet(id);
 
             return Json(users);
         }
@@ -46,25 +46,19 @@ namespace Wallet.Controllers
         }
 
 
-        // [HttpPut("{id}")]
-        // public IActionResult UpdateUser(int id, [FromBody]CreateUser command)
-        // {
-        //     throw new NotImplementedException();
-        // }
+         [HttpPut("{id}")]
+         public IActionResult UpdateUser(int id, [FromBody]CreateUser command)
+         {
+             throw new NotImplementedException();
+         }
 
 
-        [HttpDelete("{name}")]
-        public void DeleteUser(string name)
+        [HttpDelete("{id}")]
+        public IActionResult DeleteUser(Guid id)
         {
-            _walletService.DeleteWallet(name);
+            _walletService.DeleteWallet(id);
+
+            return Ok();
         }
-
-        // [HttpPost("AddWallet")]
-        // public IActionResult AddWalletToUser([FromBody]AddWallet command)
-        // {
-        //     userService.AddWallet(command.UserId, command.WalletName, command.WalletDescription);
-
-        //     return Created("", null);
-        // }
     }
 }

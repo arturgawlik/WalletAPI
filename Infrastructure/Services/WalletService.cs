@@ -10,31 +10,35 @@ namespace Infrastructure.Services
     public class WalletService : IWalletService
     {
         private readonly IWalletRepository _walletRepository;
-        private readonly IMapper mapper;
+        private readonly IMapper _mapper;
         public WalletService(IMapper mapper, IWalletRepository walletRepository)
         {
-            this.mapper = mapper;
+            _mapper = mapper;
             _walletRepository = walletRepository;
         }
 
 
         public IEnumerable<WalletDto> GetAllWallets()
         {
-            throw new NotImplementedException();
+            var wallets = _walletRepository.GetAll();
+
+            return _mapper.Map<IEnumerable<WalletDto>>(wallets);
         }
 
-        public WalletDto GetWallet(string name)
+        public WalletDto GetWallet(Guid id)
         {
-            throw new NotImplementedException();
+            var wallet = _walletRepository.Get(id);
+
+            return _mapper.Map<WalletDto>(wallet);
         }
         public void AddWallet(string name, string description, Guid userId)
         {
             var wallet = new Wallet(name, description, userId);
             _walletRepository.Add(wallet);
         }
-        public void DeleteWallet(string name)
+        public void DeleteWallet(Guid id)
         {
-            throw new NotImplementedException();
+            _walletRepository.Remove(id);
         }
     }
 }

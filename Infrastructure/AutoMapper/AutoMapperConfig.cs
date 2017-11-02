@@ -11,6 +11,7 @@ namespace Infrastructure.AutoMapper
             return new MapperConfiguration( cfg => 
             {
                 cfg.CreateMap<User, UserDto>();
+                cfg.CreateMap<Wallet, WalletDto>();
             })
             .CreateMapper();
         }
