@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 using Core.Models;
 using Core.Repository;
@@ -31,10 +32,23 @@ namespace Infrastructure.Services
 
             return _mapper.Map<WalletDto>(wallet);
         }
+
+        public WalletDto GetWallet(string name)
+        {
+            var wallet = _walletRepository.Get(name);
+
+            return _mapper.Map<WalletDto>(wallet);
+        }
+
         public void AddWallet(string name, string description, Guid userId)
         {
-            var wallet = new Wallet(name, description, userId);
-            _walletRepository.Add(wallet);
+            var wallet = _walletRepository.Get(name);
+            
+            if(wallet != null)
+                throw new Exception($"Wallet with name: '{name}' already exist.");
+
+            wallet = new Wallet(name, description, userId);
+            _walletRepository.AddWallet(wallet);
         }
         public void DeleteWallet(Guid id)
         {

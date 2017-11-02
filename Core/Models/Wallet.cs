@@ -11,7 +11,6 @@ namespace Core.Models
         public DateTime CreatedTime { get; }
         public DateTime UpdateTime { get; protected set; }
         public Guid UserId { get; protected set; }
-        public List<Event> Events { get; protected set; }
 
 
         public Wallet()
@@ -49,37 +48,41 @@ namespace Core.Models
             UpdateTime = DateTime.UtcNow;
         }
 
-        public void AddContent(decimal value)
+        public Event AddContent(decimal value)
         {
             if (value < 0)
                 throw new Exception("The adding value to wallet can not be smaller than 0.");
 
             if (value == 0)
-                return;
+                return null;
 
-            Events.Add(GetNewEvent(EventType.adding, Content, value));
+            var _event = GetNewEvent(EventType.adding, Content, value, this.Id);
             Content += value;
             UdateData();
+
+            return _event;
         }
         
-        public void SubstractContent(decimal value)
+        public Event SubstractContent(decimal value)
         {
             if (value < 0)
                 throw new Exception("The substracted value from wallet can not be smaller than 0.");
 
             if (value == 0)
-                return;
+                return null;
 
             if ((Content - value) < 0)
                 throw new Exception("Content can not be smaller than 0.");
 
-            Events.Add(GetNewEvent(EventType.substacting, Content, value));
+            var _event = GetNewEvent(EventType.substacting, Content, value, this.Id);
             Content -= value;
             UdateData();
+
+            return _event;
         }
-        private Event GetNewEvent(EventType eventType, decimal walletContent, decimal value)
+        private Event GetNewEvent(EventType eventType, decimal walletContent, decimal value, Guid walletId)
         {
-            return new Event(eventType, walletContent, value);
+            return new Event(eventType, walletContent, value, walletId);
         }
     }
 }

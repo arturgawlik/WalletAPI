@@ -9,15 +9,17 @@ namespace Core.Models
         public decimal HowMuch { get; protected set; }
         public EventType OperationType { get; protected set; }
         public DateTime EventTime { get; protected set; }
+        public Guid WalletId { get; protected set; }
 
 
         public Event()
         {
         }
 
-        public Event(EventType eventType, decimal walletContent, decimal value)
+        public Event(EventType eventType, decimal walletContent, decimal value, Guid walletId)
         {
             Id = Guid.NewGuid();
+            WalletId = walletId;
             switch(eventType)
             {
                 case EventType.adding:

@@ -12,9 +12,10 @@ using System;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(WalletContext))]
-    partial class WalletContextModelSnapshot : ModelSnapshot
+    [Migration("20171102213346_8Migration")]
+    partial class _8Migration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

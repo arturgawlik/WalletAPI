@@ -8,6 +8,7 @@ namespace Infrastructure.Services
     {
         IEnumerable<WalletDto> GetAllWallets();
         WalletDto GetWallet(Guid id);
+        WalletDto GetWallet(string name);
         void AddWallet(string name, string description, Guid userId);
         void DeleteWallet(Guid id);
     }

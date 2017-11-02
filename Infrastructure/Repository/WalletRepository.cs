@@ -29,7 +29,14 @@ namespace Infrastructure.Repository
             return wallet;
         }
 
-        public void Add(Wallet wallet)
+        public Wallet Get(string name)
+        {
+            var wallet = _dbContext.Wallets.FirstOrDefault(x => x.Name == name);
+
+            return wallet;
+        }
+
+        public void AddWallet(Wallet wallet)
         {
             _dbContext.Wallets.Add(wallet);
             _dbContext.SaveChanges();
@@ -46,6 +53,16 @@ namespace Infrastructure.Repository
             var wallet = Get(id);
             _dbContext.Wallets.Remove(wallet);
             _dbContext.SaveChanges();
+        }
+
+        public void AddContent(decimal content)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SubstarctContent(decimal content)
+        {
+            throw new NotImplementedException();
         }
     }
 }
