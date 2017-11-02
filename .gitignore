@@ -40,4 +40,5 @@ Thumbs.db
 *.dotCover
 
 .vscode
-.idea/.idea.Wallet
+.idea
+.idea.Wallet
