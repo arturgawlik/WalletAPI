@@ -55,14 +55,24 @@ namespace Infrastructure.Repository
             _dbContext.SaveChanges();
         }
 
-        public void AddContent(decimal content)
+        public void AddContent(Guid walletId, decimal content)
         {
-            throw new NotImplementedException();
+            var wallet = Get(walletId);
+            var _event = wallet.AddContent(content);
+
+            Update(wallet);
+            _dbContext.Events.Add(_event);
+            _dbContext.SaveChanges();
         }
 
-        public void SubstarctContent(decimal content)
+        public void SubstarctContent(Guid walletId, decimal content)
         {
-            throw new NotImplementedException();
+            var wallet = Get(walletId);
+            var _event = wallet.SubstractContent(content);
+
+            Update(wallet);
+            _dbContext.Events.Add(_event);
+            _dbContext.SaveChanges();
         }
     }
 }

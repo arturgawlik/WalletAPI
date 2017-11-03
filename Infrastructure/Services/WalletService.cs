@@ -54,5 +54,15 @@ namespace Infrastructure.Services
         {
             _walletRepository.Remove(id);
         }
+
+        public void AddContent(Guid walletId, decimal content)
+        {
+            _walletRepository.AddContent(walletId, content);
+        }
+
+        public void SubstarctContent(Guid walletId, decimal content)
+        {
+            _walletRepository.SubstarctContent(walletId, content);
+        }
     }
 }

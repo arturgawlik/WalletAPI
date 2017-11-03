@@ -11,5 +11,7 @@ namespace Infrastructure.Services
         WalletDto GetWallet(string name);
         void AddWallet(string name, string description, Guid userId);
         void DeleteWallet(Guid id);
+        void AddContent(Guid walletId, decimal AddContent);
+        void SubstarctContent(Guid walletId, decimal content);
     }
 }

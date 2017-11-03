@@ -20,6 +20,7 @@ namespace Core.Models
         {
             Id = Guid.NewGuid();
             WalletId = walletId;
+            OperationType = eventType;
             switch(eventType)
             {
                 case EventType.adding:
