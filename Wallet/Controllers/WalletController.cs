@@ -60,5 +60,21 @@ namespace Wallet.Controllers
 
             return Ok();
         }
+
+        [HttpPost("add")]
+        public IActionResult AddContent([FromBody]ChangeContent command)
+        {
+            _walletService.AddContent(command.WalletId, command.Content);
+
+            return Ok();
+        }
+
+        [HttpPost("substract")]
+        public IActionResult SubstractContent([FromBody]ChangeContent command)
+        {
+            _walletService.SubstarctContent(command.WalletId, command.Content);
+
+            return Ok();
+        }
     }
 }
