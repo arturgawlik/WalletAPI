@@ -1,35 +1,52 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Core.Models;
 using Core.Repository;
+using Infrastructure.EF;
 
 namespace Infrastructure.Repository
 {
     public class EventRepository : IEventRepository
     {
-        public Task<IEnumerable<Event>> GetAllAsync(Wallet wallet)
+        private readonly WalletContext _dbContext;
+        public EventRepository(WalletContext dbContext)
         {
-            throw new NotImplementedException();
+            _dbContext = dbContext;
         }
 
-        public Task<Event> GetAsync(Guid id)
+        public Event Get(Guid id)
         {
-            throw new NotImplementedException();
+            var _event = _dbContext.Events.FirstOrDefault(x => x.Id == id);
+
+            return _event;
         }
 
-        public Task AddAsync(Event @event)
+        public IEnumerable<Event> GetAll()
         {
-            throw new NotImplementedException();
+            var events = _dbContext.Events.ToList();
+
+            return events;
         }
 
-        public Task UpdateAsync(Event @event)
+        public IEnumerable<Event> GetAllForUserId(Guid userId)
         {
-            throw new NotImplementedException();
+            var wallets = _dbContext.Wallets.Where(x => x.UserId == userId);
+            List<Event> events = new List<Event>();
+            foreach(var wallet in wallets)
+            {
+                events.AddRange(_dbContext.Events.Where(x => x.WalletId == wallet.Id));
+            }    
+
+            return events;
         }
-        public Task RemoveAsync(Event @event)
+
+        public IEnumerable<Event> GetAllForWalletId(Guid walletId)
         {
-            throw new NotImplementedException();
+            var events = _dbContext.Events.Where(x => x.WalletId == walletId);
+
+            return events;
         }
     }
 }

@@ -7,10 +7,12 @@ namespace Core.Repository
 {
     public interface IEventRepository
     {
-         Task<Event> GetAsync(Guid id);
-         Task<IEnumerable<Event>> GetAllAsync(Wallet wallet);
-         Task AddAsync(Event @event);
-         Task UpdateAsync(Event @event);
-         Task RemoveAsync(Event @event);
+         Event Get(Guid id);
+         IEnumerable<Event> GetAllForWalletId(Guid walletId);
+         IEnumerable<Event> GetAllForUserId(Guid userId);
+         IEnumerable<Event> GetAll();
+         //void Add(Event @event);
+         //void Update(Event @event);
+         //void Remove(Event @event);
     }
 }

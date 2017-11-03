@@ -12,6 +12,7 @@ namespace Infrastructure.AutoMapper
             {
                 cfg.CreateMap<User, UserDto>();
                 cfg.CreateMap<Wallet, WalletDto>();
+                cfg.CreateMap<Event, EventDto>();
             })
             .CreateMapper();
         }

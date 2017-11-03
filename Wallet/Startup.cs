@@ -37,6 +37,8 @@ namespace Wallet
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IWalletRepository, WalletRepository>();
             services.AddScoped<IWalletService, WalletService>();
+            services.AddScoped<IEventRepository, EventRepository>();
+            services.AddScoped<IEventService, EventService>();
             
         }
  
