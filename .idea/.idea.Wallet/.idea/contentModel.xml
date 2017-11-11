@@ -36,10 +36,12 @@
             <e p="CreateUser.cs" t="Include" />
           </e>
           <e p="Wallets" t="Include">
+            <e p="ChangeContent.cs" t="Include" />
             <e p="CreateWallet.cs" t="Include" />
           </e>
         </e>
         <e p="Dto" t="Include">
+          <e p="EventDto.cs" t="Include" />
           <e p="UserDto.cs" t="Include" />
           <e p="WalletDto.cs" t="Include" />
         </e>
@@ -62,6 +64,8 @@
           <e p="20171101183046_6Migration.Designer.cs" t="Include" />
           <e p="20171101202344_7Migration.cs" t="Include" />
           <e p="20171101202344_7Migration.Designer.cs" t="Include" />
+          <e p="20171102213346_8Migration.cs" t="Include" />
+          <e p="20171102213346_8Migration.Designer.cs" t="Include" />
           <e p="WalletContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -77,6 +81,8 @@
           <e p="WalletRepository.cs" t="Include" />
         </e>
         <e p="Services" t="Include">
+          <e p="EventService.cs" t="Include" />
+          <e p="IEventService.cs" t="Include" />
           <e p="IUserService.cs" t="Include" />
           <e p="IWalletService.cs" t="Include" />
           <e p="UserService.cs" t="Include" />
@@ -90,6 +96,7 @@
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
+          <e p="Event.cs" t="Include" />
           <e p="UserController.cs" t="Include" />
           <e p="WalletController.cs" t="Include" />
         </e>
