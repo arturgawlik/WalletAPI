@@ -7,7 +7,7 @@ namespace Core.Repository
 {
     public interface IUserRepository
     {
-        User Get(Guid id);
+        User Get(int id);
         User Get(String userName);
         IEnumerable<User> GetAll();
         void Add(User user);

@@ -28,7 +28,7 @@ namespace Wallet.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(Guid id)
+        public IActionResult Get(int id)
         {
             var _event = _eventService.Get(id);
 
@@ -36,7 +36,7 @@ namespace Wallet.Controllers
         }
 
         [HttpGet("{userId}")]
-        public IActionResult GetAllForUserId(Guid userId)
+        public IActionResult GetAllForUserId(int userId)
         {
             var events = _eventService.GetAllForUserId(userId);
 
@@ -44,7 +44,7 @@ namespace Wallet.Controllers
         }
 
         [HttpGet("{walletId}")]
-        public IActionResult GetAllForWalletId(Guid walletId)
+        public IActionResult GetAllForWalletId(int walletId)
         {
             var events = _eventService.GetAllForWalletId(walletId);
 

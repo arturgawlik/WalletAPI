@@ -26,7 +26,7 @@ namespace Infrastructure.Services
             return _mapper.Map<IEnumerable<WalletDto>>(wallets);
         }
 
-        public WalletDto GetWallet(Guid id)
+        public WalletDto GetWallet(int id)
         {
             var wallet = _walletRepository.Get(id);
 
@@ -40,7 +40,7 @@ namespace Infrastructure.Services
             return _mapper.Map<WalletDto>(wallet);
         }
 
-        public void AddWallet(string name, string description, Guid userId)
+        public void AddWallet(string name, string description, int userId)
         {
             var wallet = _walletRepository.Get(name);
             
@@ -50,17 +50,17 @@ namespace Infrastructure.Services
             wallet = new Wallet(name, description, userId);
             _walletRepository.AddWallet(wallet);
         }
-        public void DeleteWallet(Guid id)
+        public void DeleteWallet(int id)
         {
             _walletRepository.Remove(id);
         }
 
-        public void AddContent(Guid walletId, decimal content)
+        public void AddContent(int walletId, decimal content)
         {
             _walletRepository.AddContent(walletId, content);
         }
 
-        public void SubstarctContent(Guid walletId, decimal content)
+        public void SubstarctContent(int walletId, decimal content)
         {
             _walletRepository.SubstarctContent(walletId, content);
         }

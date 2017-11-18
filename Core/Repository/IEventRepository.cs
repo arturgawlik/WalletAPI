@@ -7,9 +7,9 @@ namespace Core.Repository
 {
     public interface IEventRepository
     {
-         Event Get(Guid id);
-         IEnumerable<Event> GetAllForWalletId(Guid walletId);
-         IEnumerable<Event> GetAllForUserId(Guid userId);
+         Event Get(int id);
+         IEnumerable<Event> GetAllForWalletId(int walletId);
+         IEnumerable<Event> GetAllForUserId(int userId);
          IEnumerable<Event> GetAll();
          //void Add(Event @event);
          //void Update(Event @event);

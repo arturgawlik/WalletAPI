@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
+//using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Models;
@@ -22,7 +22,7 @@ namespace Infrastructure.Repository
             return _dbContext.Users.ToList();
         }
 
-        public User Get(Guid id)
+        public User Get(int id)
         {
             return _dbContext.Users.FirstOrDefault(x => x.Id == id);
         }

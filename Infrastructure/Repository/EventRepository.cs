@@ -16,7 +16,7 @@ namespace Infrastructure.Repository
             _dbContext = dbContext;
         }
 
-        public Event Get(Guid id)
+        public Event Get(int id)
         {
             var _event = _dbContext.Events.FirstOrDefault(x => x.Id == id);
 
@@ -30,7 +30,7 @@ namespace Infrastructure.Repository
             return events;
         }
 
-        public IEnumerable<Event> GetAllForUserId(Guid userId)
+        public IEnumerable<Event> GetAllForUserId(int userId)
         {
             var wallets = _dbContext.Wallets.Where(x => x.UserId == userId);
             List<Event> events = new List<Event>();
@@ -42,7 +42,7 @@ namespace Infrastructure.Repository
             return events;
         }
 
-        public IEnumerable<Event> GetAllForWalletId(Guid walletId)
+        public IEnumerable<Event> GetAllForWalletId(int walletId)
         {
             var events = _dbContext.Events.Where(x => x.WalletId == walletId);
 

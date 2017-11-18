@@ -17,7 +17,7 @@ namespace Core.Models
 
         public User(string username, string password)
         {
-            Id = Guid.NewGuid();
+            //Id = Guid.NewGuid();
             SetUsername(username);
             SetPassword(password);
             CreatedTime = DateTime.UtcNow;

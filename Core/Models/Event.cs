@@ -9,16 +9,16 @@ namespace Core.Models
         public decimal HowMuch { get; protected set; }
         public EventType OperationType { get; protected set; }
         public DateTime EventTime { get; protected set; }
-        public Guid WalletId { get; protected set; }
+        public int WalletId { get; protected set; }
 
 
         public Event()
         {
         }
 
-        public Event(EventType eventType, decimal walletContent, decimal value, Guid walletId)
+        public Event(EventType eventType, decimal walletContent, decimal value, int walletId)
         {
-            Id = Guid.NewGuid();
+            //Id = Guid.NewGuid();
             WalletId = walletId;
             OperationType = eventType;
             switch(eventType)

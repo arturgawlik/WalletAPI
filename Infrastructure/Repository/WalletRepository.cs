@@ -22,7 +22,7 @@ namespace Infrastructure.Repository
             return wallets;
         }
 
-        public Wallet Get(Guid id)
+        public Wallet Get(int id)
         {
             var wallet = _dbContext.Wallets.FirstOrDefault(x => x.Id == id);
 
@@ -48,14 +48,14 @@ namespace Infrastructure.Repository
             _dbContext.SaveChanges();
         }
 
-        public void Remove(Guid id)
+        public void Remove(int id)
         {
             var wallet = Get(id);
             _dbContext.Wallets.Remove(wallet);
             _dbContext.SaveChanges();
         }
 
-        public void AddContent(Guid walletId, decimal content)
+        public void AddContent(int walletId, decimal content)
         {
             var wallet = Get(walletId);
             var _event = wallet.AddContent(content);
@@ -65,7 +65,7 @@ namespace Infrastructure.Repository
             _dbContext.SaveChanges();
         }
 
-        public void SubstarctContent(Guid walletId, decimal content)
+        public void SubstarctContent(int walletId, decimal content)
         {
             var wallet = Get(walletId);
             var _event = wallet.SubstractContent(content);

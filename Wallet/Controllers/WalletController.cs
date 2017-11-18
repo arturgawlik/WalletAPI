@@ -29,7 +29,7 @@ namespace Wallet.Controllers
 
 
         [HttpGet("{id}")]
-        public IActionResult GetWallet(Guid id)
+        public IActionResult GetWallet(int id)
         {
             var users = _walletService.GetWallet(id);
 
@@ -54,7 +54,7 @@ namespace Wallet.Controllers
 
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteUser(Guid id)
+        public IActionResult DeleteUser(int id)
         {
             _walletService.DeleteWallet(id);
 

@@ -16,7 +16,7 @@ namespace Infrastructure.Services
             _mapper = mapper;
         }
 
-        public EventDto Get(Guid id)
+        public EventDto Get(int id)
         {
             var _event = _eventrepository.Get(id);
 
@@ -30,14 +30,14 @@ namespace Infrastructure.Services
             return _mapper.Map<IEnumerable<EventDto>>(events);
         }
 
-        public IEnumerable<EventDto> GetAllForUserId(Guid userId)
+        public IEnumerable<EventDto> GetAllForUserId(int userId)
         {
             var events = _eventrepository.GetAllForUserId(userId);
 
             return _mapper.Map<IEnumerable<EventDto>>(events);
         }
 
-        public IEnumerable<EventDto> GetAllForWalletId(Guid walletId)
+        public IEnumerable<EventDto> GetAllForWalletId(int walletId)
         {
             var events = _eventrepository.GetAllForWalletId(walletId);
 

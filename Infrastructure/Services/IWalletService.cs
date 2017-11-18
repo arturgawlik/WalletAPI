@@ -7,11 +7,11 @@ namespace Infrastructure.Services
     public interface IWalletService
     {
         IEnumerable<WalletDto> GetAllWallets();
-        WalletDto GetWallet(Guid id);
+        WalletDto GetWallet(int id);
         WalletDto GetWallet(string name);
-        void AddWallet(string name, string description, Guid userId);
-        void DeleteWallet(Guid id);
-        void AddContent(Guid walletId, decimal AddContent);
-        void SubstarctContent(Guid walletId, decimal content);
+        void AddWallet(string name, string description, int userId);
+        void DeleteWallet(int id);
+        void AddContent(int walletId, decimal AddContent);
+        void SubstarctContent(int walletId, decimal content);
     }
 }

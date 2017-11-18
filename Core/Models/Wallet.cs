@@ -10,16 +10,16 @@ namespace Core.Models
         public decimal Content { get; protected set; }
         public DateTime CreatedTime { get; }
         public DateTime UpdateTime { get; protected set; }
-        public Guid UserId { get; protected set; }
+        public int UserId { get; protected set; }
 
 
         public Wallet()
         {
         }
 
-        public Wallet(string name, string description, Guid userId)
+        public Wallet(string name, string description, int userId)
         {
-            Id = Guid.NewGuid();
+            //Id = Guid.NewGuid();
             UserId = userId;
             CreatedTime = DateTime.UtcNow;
             SetName(name);
@@ -80,7 +80,7 @@ namespace Core.Models
 
             return _event;
         }
-        private Event GetNewEvent(EventType eventType, decimal walletContent, decimal value, Guid walletId)
+        private Event GetNewEvent(EventType eventType, decimal walletContent, decimal value, int walletId)
         {
             return new Event(eventType, walletContent, value, walletId);
         }
